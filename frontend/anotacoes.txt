@@ -1,0 +1,5 @@
+
+index esta funcionando(pegando dados no strapi e atualizando na interface)
+
+Cadastro e login estao funcionando(salvando dados de usuario no strapi)
+

@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Página Inicial - Catálogo de Produtos</title>
+    <link rel="stylesheet" href="./Style.css/index.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img  src="./img/Logo artesanato(2).png" alt="Logo Artesanato">
+        </div>
+        <div class="search-bar">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Buscar produto...">
+                <i class="bi bi-search"></i>
+            </div>
+        </div>        
+        <nav class="actions">
+            <a id="pedidos" href="acompanharPedidos.html">Meus Pedidos</a>
+            <a href="carrinho.html">
+                <i class="bi bi-cart-check" aria-label="Carrinho" data-count="0"></i>
+            </a>
+            <a href="login.html">
+                <i class="bi bi-person-circle" aria-label="Login e Cadastro"></i>
+            </a>
+        </nav>
+    </header>
+
+    <nav>
+        <label for="category-select">Escolha a Categoria</label>
+        <select id="category-select" aria-placeholder="Categoria">
+            <option value="" disabled selected hidden>Categoria</option>
+        </select>
+    </nav>
+    <main>
+        <!-- Contêiner correto para os produtos -->
+        <div id="product-list">
+            <p>Carregando produtos...</p> 
+        </div>
+    </main>
+   <script src="./scripts.js/index.js"></script>
+</body>
+</html>

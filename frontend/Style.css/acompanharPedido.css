@@ -1,0 +1,221 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e4dfdf;
+}
+
+header {
+  background-color: #7d46d6;
+  color: black;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-left: 50px;
+}
+
+header .search-bar {
+  margin-left: auto;
+  margin-right: 40px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+}
+.sair{
+  width: 30%;
+  background-color: rgb(190, 36, 36);
+  color: white;
+  border: none;
+  padding: 10px 17px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sair i{
+  display: flex;
+  justify-content: center;
+}
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #7d46d6;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #7d46d6;
+}
+
+header .actions a {
+  text-decoration: none;
+  color: white;
+  position: relative;
+  font-size: 28px;
+  margin-right: 20px;
+}
+
+header .actions a:hover {
+  color: #ccc;
+}
+
+.bi-cart-check {
+  position: relative;
+}
+
+.bi-cart-check::after {
+  content: attr(data-count);
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #8553d6;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+/* Estilo geral para o nav de categorias */
+nav {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #e4dfdf; /* Cor de fundo suave */
+  border-radius: 5px;
+}
+
+/* Estilo do label */
+nav label {
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 10px;
+  color: #333;
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #7d46d6;
+  margin: 20px 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#product-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 produtos por linha */
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.product-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  height: auto;
+}
+
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.product-card h3 {
+  font-size: 14px;
+  margin: 10px 0;
+  font-weight: bold;
+  list-style: none;
+}
+
+.product-card p {
+  color: #030303;
+  font-size: 14px;
+}
+
+.status-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.status-button {
+  width: 200px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#pago-btn { background-color: #4CAF50; }
+#pendente-btn { background-color: #FFA500; }
+#enviado-btn { background-color: #007BFF; }
+#cancelado-btn { background-color: #FF0000; }
+
+.status-button:hover { opacity: 0.8; }
+
+.pedido-container {
+  display: none; /* Oculta inicialmente */
+  width: 80%;
+  max-width: 600px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  background: #f9f9f9;
+}
+
+.pedido-card {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+.pedido-item img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}

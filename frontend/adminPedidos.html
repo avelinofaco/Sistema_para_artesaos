@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Style.css/admPedidos.css">
+    <title>Gerenciar Pedidos</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./img/Logo artesanato(2).png" alt="Logo Artesanato">
+        </div>
+        <nav class="actions">
+            <a href="index.html" class="back-button">
+                <i class="bi bi-arrow-left" aria-label="Voltar ao Catálogo"></i> Voltar ao Catálogo
+            </a>
+        </nav>
+    </header>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>QuantItens</th>
+                <th>Status</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody id="pedidoTableBody">
+            <!-- Os pedidos serão carregados aqui -->
+        </tbody>
+    </table>
+
+    <!-- Modal -->
+    <div id="statusModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Atualizar Status</h3>
+            <select id="statusSelect">
+                <option value="pago">Pago</option>
+                <option value="pendente">Pendente</option>
+                <option value="enviado">Enviado</option>
+                <option value="cancelado">Cancelado</option>
+            </select>
+            <button id="confirmStatusUpdate">Confirmar</button>
+        </div>
+    </div>
+    <script src="./scripts.js/admPedidos.js"></script>
+</body>
+</html>

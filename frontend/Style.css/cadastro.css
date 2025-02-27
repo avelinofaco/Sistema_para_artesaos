@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #7d46d6;
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    margin-left: 50px;
+}
+
+header .actions .back-button {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header .actions .back-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.register-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.register-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #7d46d6;
+}
+
+.register-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-container form label {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.register-container form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.register-container form button {
+    background-color: #7d46d6;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.register-container form button:hover {
+    background-color: #6a39c6;
+}
+
+.register-container .login-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.register-container .login-link a {
+    color: #7d46d6;
+    text-decoration: none;
+}
+
+.register-container .login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: left;
+        padding: 10px;
+    }
+
+    header .logo img {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto;
+    }
+
+    .register-container {
+        width: 90%;
+        margin: 30px auto;
+        padding: 15px;
+    }
+
+    .register-container form input,
+    .register-container form button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pedido_items",
+  "info": {
+    "singularName": "pedido-item",
+    "pluralName": "pedido-items",
+    "displayName": "pedidoItem"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "image": {
+      "type": "string"
+    },
+    "pedido": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pedido.pedido",
+      "inversedBy": "pedido_items"
+    }
+  }
+}

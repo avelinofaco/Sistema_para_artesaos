@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cartaos",
+  "info": {
+    "singularName": "cartao",
+    "pluralName": "cartaos",
+    "displayName": "cartao",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "numero": {
+      "type": "string",
+      "required": true
+    },
+    "nome": {
+      "type": "string"
+    },
+    "cvv": {
+      "type": "string",
+      "maxLength": 3
+    },
+    "validade": {
+      "type": "date"
+    },
+    "usuario": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "cartao"
+    }
+  }
+}
