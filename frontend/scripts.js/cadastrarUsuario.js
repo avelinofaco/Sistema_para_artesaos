@@ -80,54 +80,130 @@ async function createUser(username, email, password) {
     }
 }
 
-// Função para editar usuário
-async function editUser(id) {
-    if (!isAdmin()) return;
-    const newUsername = prompt('Novo nome de usuário:');
-    const newEmail = prompt('Novo email:');
-    if (!newUsername || !newEmail) return;
+// // Função para editar usuário
+// async function editUser(id) {
+//     if (!isAdmin()) return;
+//     const newUsername = prompt('Novo nome de usuário:');
+//     const newEmail = prompt('Novo email:');
+//     if (!newUsername || !newEmail) return;
 
-    try {
-        const response = await fetch(`${API_URL}/${id}`, {
-            method: 'PUT',
-            headers: { 
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${TOKEN}`
-            },
-            body: JSON.stringify({ username: newUsername, email: newEmail })
-        });
-        if (response.ok) fetchUsers();
-    } catch (error) {
-        console.error('Erro ao editar usuário:', error);
-    }
-}
+//     try {
+//         const response = await fetch(`${API_URL}/${id}`, {
+//             method: 'PUT',
+//             headers: { 
+//                 'Content-Type': 'application/json',
+//                 'Authorization': `Bearer ${TOKEN}`
+//             },
+//             body: JSON.stringify({ username: newUsername, email: newEmail })
+//         });
+//         if (response.ok) fetchUsers();
+//     } catch (error) {
+//         console.error('Erro ao editar usuário:', error);
+//     }
+// }
 
-// Função para deletar usuário
-async function deleteUser(id) {
-    if (!isAdmin()) return;
-    if (!confirm('Tem certeza que deseja excluir este usuário?')) return;
+// // Função para deletar usuário
+// async function deleteUser(id) {
+//     if (!isAdmin()) return;
+//     if (!confirm('Tem certeza que deseja excluir este usuário?')) return;
 
-    try {
-        const response = await fetch(`http://localhost:1337/api/users/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Authorization': `Bearer ${TOKEN}`,
-                'Content-Type': 'application/json'
-            }
-        });
+//     try {
+//         const response = await fetch(`http://localhost:1337/api/users/${id}`, {
+//             method: 'DELETE',
+//             headers: {
+//                 'Authorization': `Bearer ${TOKEN}`,
+//                 'Content-Type': 'application/json'
+//             }
+//         });
 
-        const result = await response.json();
+//         const result = await response.json();
 
-        if (response.ok) {
-            fetchUsers();
-        } else {
-            alert(`Erro ao deletar usuário: ${result.error.message}`);
+//         if (response.ok) {
+//             fetchUsers();
+//         } else {
+//             alert(`Erro ao deletar usuário: ${result.error.message}`);
+//         }
+//     } catch (error) {
+//         console.error('Erro ao deletar usuário:', error);
+//     }
+// }
+
+
+// // Carregar usuários ao carregar a página
+// document.addEventListener('DOMContentLoaded', fetchUsers);
+
+let userIdToDelete;
+
+        function openEditModal(id, username, email) {
+            document.getElementById('editUserId').value = id;
+            document.getElementById('editUsername').value = username;
+            document.getElementById('editEmail').value = email;
+            document.getElementById('editModal').style.display = 'flex';
         }
-    } catch (error) {
-        console.error('Erro ao deletar usuário:', error);
-    }
-}
 
+        function openDeleteModal(id) {
+            userIdToDelete = id;
+            document.getElementById('deleteModal').style.display = 'flex';
+        }
 
-// Carregar usuários ao carregar a página
-document.addEventListener('DOMContentLoaded', fetchUsers);
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        async function confirmEditUser() {
+            const id = document.getElementById('editUserId').value;
+            const username = document.getElementById('editUsername').value;
+            const email = document.getElementById('editEmail').value;
+            await editUser(id, username, email);
+            closeModal('editModal');
+        }
+
+        async function confirmDeleteUser() {
+            await deleteUser(userIdToDelete);
+            closeModal('deleteModal');
+        }
+
+        async function fetchUsers() {
+            const response = await fetch('http://localhost:1337/api/users', {
+                headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` }
+            });
+            const users = await response.json();
+            
+            const userList = document.getElementById('user-list');
+            userList.innerHTML = '';
+            users.forEach(user => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${user.id}</td>
+                    <td>${user.username}</td>
+                    <td>${user.email}</td>
+                    <td>
+                        <button onclick="openEditModal(${user.id}, '${user.username}', '${user.email}')">Editar</button>
+                        <button onclick="openDeleteModal(${user.id})">Deletar</button>
+                    </td>
+                `;
+                userList.appendChild(row);
+            });
+        }
+
+        async function editUser(id, username, email) {
+            await fetch(`http://localhost:1337/api/users/${id}`, {
+                method: 'PUT',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+                },
+                body: JSON.stringify({ username, email })
+            });
+            fetchUsers();
+        }
+
+        async function deleteUser(id) {
+            await fetch(`http://localhost:1337/api/users/${id}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` }
+            });
+            fetchUsers();
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchUsers);

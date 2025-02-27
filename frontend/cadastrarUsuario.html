@@ -44,6 +44,25 @@
         </thead>
         <tbody id="user-list"></tbody>
     </table>
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2>Editar Usuário</h2>
+            <input type="hidden" id="editUserId">
+            <label>Nome: <input type="text" id="editUsername"></label><br>
+            <label>Email: <input type="email" id="editEmail"></label><br>
+            <button onclick="confirmEditUser()">Salvar</button>
+            <button onclick="closeModal('editModal')">Cancelar</button>
+        </div>
+    </div>
+
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h2>Confirmar Exclusão</h2>
+            <p>Tem certeza que deseja excluir este usuário?</p>
+            <button onclick="confirmDeleteUser()">Sim</button>
+            <button onclick="closeModal('deleteModal')">Não</button>
+        </div>
+    </div>
 
     <script src="./scripts.js/cadastrarUsuario.js"></script>
 </body>

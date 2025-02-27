@@ -13,18 +13,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ identifier: email, password: password }),
             });
-
+        
             if (!response.ok) throw new Error("Falha no login. Verifique suas credenciais.");
-
+        
             const data = await response.json();
+            console.log(data); // Verifique a estrutura dos dados recebidos
+
             localStorage.setItem("jwt", data.jwt);
             localStorage.setItem("userId", data.user.id);
+            localStorage.setItem("loggedUser", JSON.stringify({ username: data.user.username, role: data.user.role?.name }));
+
             
             verificarAcesso();
             
         } catch (error) {
             console.error("Erro no login:", error);
         }
+        
     });
 });
 
@@ -73,7 +78,7 @@ function exibirMenuAdministrador() {
     if (!document.getElementById("adminMenu")) {
         const menu = document.createElement("div");
         menu.id = "adminMenu";
-;
+        
         const btnCadastrar = document.createElement("button")
         btnCadastrar.innerText = "Cadastrar Usuario";
         btnCadastrar.onclick = () => window.location.href = "cadastrarUsuario.html";
@@ -96,9 +101,8 @@ function exibirMenuAdministrador() {
 
     // Exibir o menu
     document.getElementById("adminMenu").style.display = "block";
-}
 
-// Função para fechar o menu
+    // Função para fechar o menu
 function fecharMenu() {
     const menu = document.getElementById("adminMenu");
     if (menu) {
@@ -107,4 +111,8 @@ function fecharMenu() {
        // Exibir o menu
  document.getElementById("adminMenu").style.display = "block";
 }
+}
+
+
+
 
