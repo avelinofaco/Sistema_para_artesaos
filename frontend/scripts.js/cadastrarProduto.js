@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     
         if (!imageResponse.ok) {
           const errorText = await imageResponse.text();
-          // throw new Error(`Erro ao enviar imagem: ${errorText}`);
+          throw new Error(`Erro ao enviar imagem: ${errorText}`);
         }
     
         const imageData = await imageResponse.json();
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     
         const imageId = imageData[0].id; // Pegando o ID correto da imagem
     
-        // 2️⃣ Agora, cadastrar o produto com a imagem associada
+        // cadastrar o produto com a imagem associada
         const productData = {
           data: {
             name: name,
@@ -80,6 +80,12 @@ document.addEventListener("DOMContentLoaded", async function () {
             image: imageId, // Relaciona a imagem enviada ao produto
           },
         };
+
+
+
+
+
+  //Temos problemas aqui
         const response = await fetch("http://localhost:1337/api/produtos", {
           method: "POST",
           headers: {
@@ -88,7 +94,6 @@ document.addEventListener("DOMContentLoaded", async function () {
           },
           body: JSON.stringify(productData),
         });
-
         if (!response.ok) {
           const errorResponse = await response.json();
           throw new Error(`Erro ao cadastrar produto: ${errorResponse.error.message}`);
@@ -99,7 +104,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.error("Erro ao cadastrar produto:", error);
       }
     });
-    
+
+
 
       //funcao editar
     async function editProduct(documentId, product) {
@@ -185,6 +191,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   
     // Renderizar produtos
     async function renderProducts() {
+      console.log("Renderizando produtos...");
       const products = await fetchProducts();
       productContainer.innerHTML = "";
   
@@ -222,6 +229,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       });
     }
   
-    renderProducts();
+    document.getElementById("productForm").reset();
+    await renderProducts(); // <- Recarrega a lista
+
   });
   

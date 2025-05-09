@@ -74,7 +74,7 @@ input, textarea {
     border-radius: 5px;
     cursor: pointer;
 }
-.btn-danger, .closeModal{
+.btn-danger{
     background-color: rgb(175, 5, 5);
     color: white;
     padding: 10px 20px;
@@ -148,27 +148,42 @@ input, textarea {
     border-radius: 10px;
     width: 300px;
 }
+
 .modal input {
     width: 100%;
     margin-bottom: 10px;
     padding: 8px;
 }
-.saveChanges {
+#saveChanges {
     padding: 10px;
     margin-right: 5px;
     background-color: rgb(5, 170, 5);
     border-radius: 7px;
     border: none;
+    color: white;
     font-weight: bold;
     cursor: pointer;
 }
 
-/* .closeModal{
+.modal-content h2 {
+    margin-bottom: 20px;
+    text-align: center;
+} 
+
+.modal-content .btn-danger{
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.closeModal{
     padding: 10px;
-    margin-right: 5px;
-    background-color: rgb(240, 36, 36);
+    background-color: gray;
     border-radius: 7px;
     border: none;
     font-weight: bold;
     cursor: pointer;
-} */
+    color: white;
+}

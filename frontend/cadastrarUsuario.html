@@ -9,11 +9,11 @@
 <body>
     <header>
         <div class="logo">
-            <img src="./img/Logo artesanato(2).png" alt="Logo Artesanato">
+            <a href="index.html"><img src="./img/Logo artesanato(2).png" alt="Logo Artesanato"></a>
         </div>
         <nav class="actions">
-            <a href="index.html" class="back-button">
-                <i class="bi bi-arrow-left" aria-label="Voltar ao Catálogo"></i> Voltar ao Catálogo
+            <a href="login.html" class="back-button">
+                <i class="bi bi-arrow-left" aria-label="Voltar ao Catálogo"></i> Voltar 
             </a>
         </nav>
     </header>
@@ -50,8 +50,8 @@
             <input type="hidden" id="editUserId">
             <label>Nome: <input type="text" id="editUsername"></label><br>
             <label>Email: <input type="email" id="editEmail"></label><br>
-            <button onclick="confirmEditUser()">Salvar</button>
-            <button onclick="closeModal('editModal')">Cancelar</button>
+            <button class="salve" onclick="confirmEditUser()">Salvar</button>
+            <button class="cancel" onclick="closeModal('editModal')">Cancelar</button>
         </div>
     </div>
 

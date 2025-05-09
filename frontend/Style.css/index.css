@@ -33,6 +33,9 @@ header .search-bar {
   position: relative;
   width: 100%;
   max-width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .search-container input {
@@ -45,12 +48,13 @@ header .search-bar {
 
 .search-container i {
   position: absolute;
-  right: 15px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
   color: #7d46d6;
   font-size: 18px;
   pointer-events: none;
+  cursor: pointer;
 }
 
 .cart-badge {
