@@ -71,10 +71,10 @@ STRAPI
 
 | Entidade| Criação | Leitura | Atualização | Remoção |
 | --- | --- | --- | --- | --- |
-| pedidos   |  X  |  X  |     |   X        
+| pedidos   |  X  |  X  |     |         
 | produtos  |  X  |  X  |  X  |  X        
-| Categorias|     |  X  |     |
-
+| Categorias|     |  X  |  X  |
+| Usuários  |  X  |  X  |  X  |  X
 > Lembre-se que é necessário implementar o CRUD de pelo menos duas entidades.
 
 ## :neckbeard: Rotas da API REST utilizadas
@@ -83,3 +83,5 @@ STRAPI
 | --- | --- |
 | GET | api/pedidos/|
 | POST | api/produtos |
+| DELETE | api/produtos/|
+| GET | api/cartaos/|
