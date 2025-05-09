@@ -36,6 +36,29 @@ header .actions .back-button {
 header .actions .back-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
+body h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #7d46d6;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+    
+    width: 300px;
+    margin: 10px auto;
+    padding: 20px;
+    border: 1px solid #c2c1c1;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -46,14 +69,8 @@ th, td {
     text-align: left;
 }
 th {
-    background-color: #f4f4f4;
+    background-color: #8351d3;
 }
-button {
-    margin: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
 .modal {
     display: none;
     position: fixed;
@@ -74,4 +91,41 @@ button {
 }
 .modal button {
     margin: 10px;
+}
+
+.modal h2 {
+    margin: 15px;
+    font-size: 25px;
+    color: #7d46d6;
+}
+
+.modal input{
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.salve {
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(68, 168, 68);
+}
+
+.cancel {
+    border: none;
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgb(233, 47, 47);
+}
+.salve:hover {
+    background-color: green;
+}
+.cancel:hover {
+    background-color: red;
 }
